@@ -22,7 +22,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp acidsdocker/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -33,7 +33,7 @@ services:
     satisfactory-server:
         container_name: 'satisfactory-server'
         hostname: 'satisfactory-server'
-        image: 'wolveix/satisfactory-server:latest'
+        image: 'acidsdocker/satisfactory-server:latest'
         ports:
             - '7777:7777/udp'
             - '15000:15000/udp'
