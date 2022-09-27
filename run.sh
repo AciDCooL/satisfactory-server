@@ -12,6 +12,14 @@ set_ini_val() {
 
 NUMCHECK='^[0-9]+$'
 
+ "${GAMECONFIGDIR}/Config/LinuxServer"
+if [ -z "$(ls -A ${GAMECONFIGDIR}/Config/LinuxServer)" ]; then
+   echo "Config Dir is Empty, Copy Files"
+   cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
+else
+   echo "Not Empty, No copy"
+fi
+
 ## START Engine.ini
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
     printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
