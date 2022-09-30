@@ -88,7 +88,7 @@ rm -rf "${GAMESAVESDIR}/server"
 ln -sf "/config/saves" "${GAMESAVESDIR}/server"
 ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
 
-#cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
+cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
