@@ -33,7 +33,8 @@ ENV AUTOPAUSE="true" \
     SERVERQUERYPORT="15777" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
-    STEAMBETA="false"
+    STEAMBETA="false" \
+    FPSTICK="30"
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 
