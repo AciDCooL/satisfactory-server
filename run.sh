@@ -3,11 +3,11 @@
 set -e
 
 set_ini_prop() {
-    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
+    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "${GAMECONFIGDIR}/Config/LinuxServer/$1"
 }
 
 set_ini_val() {
-    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
+    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "${GAMECONFIGDIR}/Config/LinuxServer/$1"
 }
 
 NUMCHECK='^[0-9]+$'
