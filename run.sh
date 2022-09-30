@@ -12,14 +12,7 @@ set_ini_val() {
 
 NUMCHECK='^[0-9]+$'
 
-#if [ -z "$(ls -A ${GAMECONFIGDIR}/Config/LinuxServer)" ]; then
-#   echo "Config Dir is Empty, Copy Files"
-#   sudo cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
-#else
-#   echo "Not Empty, No copy"
-#fi
 
-############################################## START Engine.ini############################################
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
     printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
     AUTOSAVENUM="3"
@@ -37,9 +30,6 @@ set_ini_val "Engine.ini" "\/Script\/FactoryGame\.engine\.engine" "MinDesiredFram
 set_ini_val "Engine.ini" "\/Script\/FactoryGame\.engine\.engine" "FixedFrameRate" "${FPSTICK}"
 set_ini_val "Engine.ini" "\/Script\/FactoryGame\.SystemSettings" "t.MaxFPS" "${FPSTICK}"
 
-############################################## END Engine.ini############################################
-
-############################################## START Game.ini############################################
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
     MAXPLAYERS="4"
@@ -98,7 +88,7 @@ rm -rf "${GAMESAVESDIR}/server"
 ln -sf "/config/saves" "${GAMESAVESDIR}/server"
 ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
 
-cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
+#cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
