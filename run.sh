@@ -12,12 +12,12 @@ set_ini_val() {
 
 NUMCHECK='^[0-9]+$'
 
-if [ -z "$(ls -A ${GAMECONFIGDIR}/Config/LinuxServer)" ]; then
-   echo "Config Dir is Empty, Copy Files"
-   cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
-else
-   echo "Not Empty, No copy"
-fi
+#if [ -z "$(ls -A ${GAMECONFIGDIR}/Config/LinuxServer)" ]; then
+#   echo "Config Dir is Empty, Copy Files"
+#   sudo cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
+#else
+#   echo "Not Empty, No copy"
+#fi
 
 ############################################## START Engine.ini############################################
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
