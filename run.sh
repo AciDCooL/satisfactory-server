@@ -20,7 +20,7 @@ else
    echo "Not Empty, No copy"
 fi
 
-## START Engine.ini
+############################################## START Engine.ini############################################
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
     printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
     AUTOSAVENUM="3"
@@ -31,9 +31,16 @@ set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAu
 [[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
 set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
-## END Engine.ini
 
-## START Game.ini
+printf "Setting fps to %ss\\n" "${FPSTICK}"
+set_ini_val "Engine.ini" "\/Script\/FactoryGame\.engine\.engine" "NetClientTicksPerSecond" "${FPSTICK}"
+set_ini_val "Engine.ini" "\/Script\/FactoryGame\.engine\.engine" "MinDesiredFrameRate" "${FPSTICK}"
+set_ini_val "Engine.ini" "\/Script\/FactoryGame\.engine\.engine" "FixedFrameRate" "${FPSTICK}"
+set_ini_val "Engine.ini" "\/Script\/FactoryGame\.SystemSettings" "t.MaxFPS" "${FPSTICK}"
+
+############################################## END Engine.ini############################################
+
+############################################## START Game.ini############################################
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
     MAXPLAYERS="4"
